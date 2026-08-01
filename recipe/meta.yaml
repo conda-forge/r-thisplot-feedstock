@@ -1,4 +1,4 @@
-{% set version = "0.4.3" %}
+{% set version = "0.4.4" %}
 {% set posix = 'm2-' if win else '' %}
 
 package:
@@ -6,10 +6,8 @@ package:
   version: {{ version|replace("-", "_") }}
 
 source:
-  url:
-    - {{ cran_mirror }}/src/contrib/thisplot_{{ version }}.tar.gz
-    - {{ cran_mirror }}/src/contrib/Archive/thisplot/thisplot_{{ version }}.tar.gz
-  sha256: be1e3b5da07e7a7c40f4cd0d1bf21642ab787b10da13dc31e1d62199044059d6
+  url: https://github.com/mengxu98/thisplot/releases/download/v{{ version }}/thisplot_{{ version }}.tar.gz
+  sha256: bf3412314dba6706ab40532f0d9302eb46053ef854447d9a86dab322300ef850
 
 build:
   number: 0
