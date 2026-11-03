@@ -1,4 +1,4 @@
-{% set version = "0.4.4" %}
+{% set version = "0.4.6" %}
 {% set posix = 'm2-' if win else '' %}
 
 package:
@@ -6,8 +6,10 @@ package:
   version: {{ version|replace("-", "_") }}
 
 source:
-  url: https://github.com/mengxu98/thisplot/releases/download/v{{ version }}/thisplot_{{ version }}.tar.gz
-  sha256: bf3412314dba6706ab40532f0d9302eb46053ef854447d9a86dab322300ef850
+  url:
+    - {{ cran_mirror }}/src/contrib/thisplot_{{ version }}.tar.gz
+    - {{ cran_mirror }}/src/contrib/Archive/thisplot/thisplot_{{ version }}.tar.gz
+  sha256: 2a127808ad25ecb82a6c5103aed7819d890d3e296df93c62becd9c9fbd121878
 
 build:
   number: 0
@@ -26,14 +28,14 @@ requirements:
     - r-ggforce
     - r-geomtextpath
     - r-ggnewscale
-    - r-ggplot2
+    - r-ggplot2 >=4.0.0
     - r-ggrepel
     - r-gtable
     - r-igraph
     - r-patchwork
     - r-proxyc
     - r-reshape2
-    - r-thisutils >=0.4.3
+    - r-thisutils >=0.5.0
   run:
     - r-base
     - r-cli
@@ -41,14 +43,14 @@ requirements:
     - r-ggforce
     - r-geomtextpath
     - r-ggnewscale
-    - r-ggplot2
+    - r-ggplot2 >=4.0.0
     - r-ggrepel
     - r-gtable
     - r-igraph
     - r-patchwork
     - r-proxyc
     - r-reshape2
-    - r-thisutils >=0.4.3
+    - r-thisutils >=0.5.0
 
 test:
   commands:
